@@ -1,22 +1,21 @@
 import streamlit as st
-import easyocr
 from PIL import Image
+import pytesseract
 import numpy as np
 
-# Initialize the OCR reader
-reader = easyocr.Reader(['en'])
+# Path to the tesseract executable
+# Uncomment and set the path if tesseract is not in your PATH environment variable
+# pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 def ocr_image(image):
-    # Convert PIL image to numpy array
+    # Convert the image to a numpy array
     image_np = np.array(image)
-    # Perform OCR
-    results = reader.readtext(image_np)
-    # Extract and concatenate recognized text
-    recognized_text = ' '.join([result[1] for result in results])
+    # Perform OCR using Tesseract
+    recognized_text = pytesseract.image_to_string(image_np)
     return recognized_text
 
 def main():
-    st.title("Handwritten Text Recognition with EasyOCR")
+    st.title("Handwritten Text Recognition with Tesseract OCR")
 
     uploaded_file = st.file_uploader("Upload handwritten image", type=["jpg", "jpeg", "png"])
 
