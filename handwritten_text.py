@@ -7,6 +7,14 @@ import numpy as np
 # Uncomment and set the path if tesseract is not in your PATH environment variable
 # pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
+
+# For Windows
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+
+# For macOS/Linux, if necessary, specify the path:
+# pytesseract.pytesseract.tesseract_cmd = '/usr/local/bin/tesseract'
+
+
 def ocr_image(image):
     # Convert the image to a numpy array
     image_np = np.array(image)
