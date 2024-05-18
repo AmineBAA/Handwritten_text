@@ -5,7 +5,7 @@ python-docx
 torch
 torchvision
 torchaudio
-PIL
+
 
  
  
