@@ -9,7 +9,7 @@ import numpy as np
 
 
 # For Windows
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = r'tesseract.sh'
 
 # For macOS/Linux, if necessary, specify the path:
 # pytesseract.pytesseract.tesseract_cmd = '/usr/local/bin/tesseract'
