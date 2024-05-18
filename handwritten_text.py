@@ -1,23 +1,32 @@
 import streamlit as st
-from handwritten_text_recognition import HandwrittenTextRecognition
+import easyocr
+from PIL import Image
+import numpy as np
 
-def handwritten_to_word(image_path):
-    htr_model = HandwrittenTextRecognition()
-    recognized_text = htr_model.recognize(image_path)
+# Initialize the OCR reader
+reader = easyocr.Reader(['en'])
+
+def ocr_image(image):
+    # Convert PIL image to numpy array
+    image_np = np.array(image)
+    # Perform OCR
+    results = reader.readtext(image_np)
+    # Extract and concatenate recognized text
+    recognized_text = ' '.join([result[1] for result in results])
     return recognized_text
 
 def main():
-    st.title("Handwritten Text Recognition")
+    st.title("Handwritten Text Recognition with EasyOCR")
 
     uploaded_file = st.file_uploader("Upload handwritten image", type=["jpg", "jpeg", "png"])
 
     if uploaded_file is not None:
-        # Display the uploaded image
-        st.image(uploaded_file, caption="Uploaded Image", use_column_width=True)
+        # Load the uploaded image
+        image = Image.open(uploaded_file)
+        st.image(image, caption="Uploaded Image", use_column_width=True)
 
-        # Convert handwritten text to Word document on button click
         if st.button("Recognize Text"):
-            recognized_text = handwritten_to_word(uploaded_file)
+            recognized_text = ocr_image(image)
             st.write("Recognized Text:")
             st.write(recognized_text)
 
