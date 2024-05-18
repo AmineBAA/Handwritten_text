@@ -5,8 +5,8 @@ python-docx
 torch
 torchvision
 torchaudio
-pillow
-
+Pillow
+pytesseract 
 
  
  
