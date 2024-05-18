@@ -1,6 +1,6 @@
 streamlit
 scikit-learn
-easyocr
+tesseract
 python-docx
 torch
 torchvision
