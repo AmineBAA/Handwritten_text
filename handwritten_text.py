@@ -4,7 +4,7 @@ import streamlit as st
 import io
 
 # Set the Tesseract executable path
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'  # Update this path
+pytesseract.pytesseract.tesseract_cmd = r'https://drive.google.com/file/d/1pUXXP80qdlCXnualSIb6XdFovYvM29eO/view?usp=sharing'  # Update this path
 
 # Your Streamlit app code
 st.title("Handwritten Text Recognition")
