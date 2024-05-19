@@ -7,6 +7,19 @@ import numpy as np
 # Uncomment and set the path if tesseract is not in your PATH environment variable
 # pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
+# Inject custom CSS
+hide_github_icon = """
+    <style>
+    .viewerBadge_container__1QSob {
+        display: none !important;
+    }
+    </style>
+    """
+
+# Apply the custom CSS
+st.markdown(hide_github_icon, unsafe_allow_html=True)
+
+
 
 # For Windows
 pytesseract.pytesseract.tesseract_cmd = r'tesseract.sh'
